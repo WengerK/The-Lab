@@ -1,0 +1,20 @@
+{
+  "name": "\u001b[C\u001b[C\u001b[C",
+  "version": "1.0.0",
+  "homepage": "https://github.com/Sudei/the-lab",
+  "description": "JavaScript 3D Experiences",
+  "authors": [
+    "Kevin Wenger <wenger.kev@gmail.com>"
+  ],
+  "license": "Apache",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "three.js": "threejs#*"
+  }
+}
