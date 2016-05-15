@@ -1,0 +1,103 @@
+body,
+html {
+  background: #e7e7e7; }
+  body .container,
+  html .container {
+    height: 300px;
+    width: 300px;
+    border: 10px solid white;
+    box-shadow: 0px 4px 4px rgba(25, 25, 25, 0.5), inset 0px 4px 4px rgba(25, 25, 25, 0.2);
+    position: absolute;
+    top: calc(50% - 155px);
+    left: calc(50% - 155px);
+    background: white;
+    overflow: hidden; }
+    body .container:after, body .container:before,
+    html .container:after,
+    html .container:before {
+      content: '';
+      background: white;
+      position: absolute; }
+    body .container:after,
+    html .container:after {
+      width: 20px;
+      height: 300px;
+      left: calc(50% - 10px);
+      box-shadow: 0px 2px 4px rgba(25, 25, 25, 0.2); }
+    body .container:before,
+    html .container:before {
+      width: 300px;
+      height: 20px;
+      top: calc(50% - 10px);
+      box-shadow: 0px 2px 4px rgba(25, 25, 25, 0.3);
+      z-index: 100; }
+  body .water,
+  html .water {
+    background: #2ab0ed;
+    width: 100%;
+    height: 75px;
+    position: absolute;
+    bottom: 0;
+    z-index: 10; }
+    body .water .shape,
+    html .water .shape {
+      height: 450px;
+      width: 460px;
+      left: -65px;
+      top: -34px;
+      position: relative;
+      border-radius: 280px;
+      border-top-left-radius: 400px;
+      border-bottom-left-radius: 350px;
+      border-top-right-radius: 500px; }
+      body .water .shape.waves,
+      html .water .shape.waves {
+        background: #2ab0ed;
+        transform: rotate(33deg);
+        animation: spin 7s linear infinite;
+        animation-delay: -1.4s; }
+  body .sun .shape,
+  html .sun .shape {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    top: -30px;
+    left: -30px;
+    border-radius: 200px; }
+    body .sun .shape.sunlight1,
+    html .sun .shape.sunlight1 {
+      opacity: 0.5;
+      background: linear-gradient(to right, #f1e767 0%, #feb645 100%);
+      transform: rotate(33deg);
+      animation: spin 7s linear infinite;
+      animation-delay: -1.4s;
+      border-top-left-radius: 400px;
+      z-index: 10; }
+    body .sun .shape.sunlight2,
+    html .sun .shape.sunlight2 {
+      opacity: 0.3;
+      background: linear-gradient(to bottom, #d19090 0%, #d20000 100%);
+      transform: rotate(33deg);
+      animation: spin 1.2s linear infinite;
+      animation-delay: -1.4s;
+      border-bottom-left-radius: 100px; }
+    body .sun .shape.sunlight3,
+    html .sun .shape.sunlight3 {
+      opacity: 0.5;
+      background: linear-gradient(to bottom, #d19090 0%, #d20000 100%);
+      animation: spin 1s linear infinite;
+      animation-delay: -1.4s;
+      border-top-right-radius: 200px; }
+    body .sun .shape.sunlight4,
+    html .sun .shape.sunlight4 {
+      opacity: 0.3;
+      background: linear-gradient(to right, #f1e767 0%, #feb645 100%);
+      animation: spin 1s linear infinite;
+      animation-delay: -1.4s;
+      border-bottom-right-radius: 400px; }
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }

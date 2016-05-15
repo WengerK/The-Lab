@@ -1,0 +1,8 @@
+body,
+html {
+  background: #e7e7e7;
+
+  @import 'components/window';
+  @import 'components/loops';
+
+}
