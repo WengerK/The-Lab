@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+
+const race = '100m Dash';
+const winners = ['Antistatique', 'Matt Daemon', 'The Rock']
+
+// const win = winners.map((winner,i ) => {name: winner, race: race, place: i + 1}); // → Unexpected token : - Indeed you can't return a literal object by this way
+const win = winners.map((winner,i ) => ({name: winner, race: race, place: i + 1})); // You must add parentheses to return a literal object whitout using return keyword
+
+console.table(win) // → Sweet table of object
+
+// When the property has the same name of the value, you can use it !!
+const win = winners.map((winner,i ) => ({name: winner, race , place: i + 1}));
+
+// Now we want to retrievea filtered array of this ages for age > 60
+const ages = [23, 62, 45 , 234, 2, 22, 63, 235, 60, 34];
+
+const old = ages.filter(age => age >= 60);
+console.table(old) // → [234, 62, 235, 63]
+
+</script>
+</body>
+</html>
