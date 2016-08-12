@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Arrow functions → → </title>
+</head>
+<body>
+<script>
+  const names = ['@wengerk', '@tonifisler', '@yago'];
+
+  // Old way to iterate and change values inside
+  const fullNames = names.map(function(name){
+    return `${name} Antistatique`;
+  });
+  console.log(fullNames); // → ['@wengerk Antisatique', '@toni Antistatique', '@yago Antisatique']
+
+  // Using array functions
+  const fullNames2 = names.map((name, i) => {
+    return `${name} Antistatique`;
+  });
+  console.log(fullNames2); // → ['@wengerk Antisatique', '@toni Antistatique', '@yago Antisatique']
+
+  // Arrow functions whith 1 parameter, note that parentheses aren't mandatory
+  const fullNames3 = names.map(name => {
+    return `${name} Antistatique`;
+  });
+  console.log(fullNames3); // → ['@wengerk Antisatique', '@toni Antistatique', '@yago Antisatique']
+
+  // You can also use in one-line !!
+  const fullNames4 = names.map(name => `${name} Antistatique`);
+  console.log(fullNames4); // → ['@wengerk Antisatique', '@toni Antistatique', '@yago Antisatique']
+
+  // When you doon't have any arguments, you have to pass empty parentheses
+  const fullNames5 = names.map(()) => `Cool guys`);
+  console.log(fullNames5); // → ['@wengerk Antisatique', '@toni Antistatique', '@yago Antisatique']
+
+</script>
+</body>
+</html>
