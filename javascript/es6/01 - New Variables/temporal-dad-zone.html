@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>temporal dead zone</title>
+</head>
+<body>
+<script>
+  var pizza = '🍕🍕';
+  console.log(pizza); // → 🍕🍕; Everything is fine my pizza is defined
+
+  // Try now to acces undefined var
+  console.log(slice); // → undefined; But not any error because we never defined splice
+  var slice = '🍕';
+
+  // What about const/let
+  console.log(headskull); // → ReferenceError: headskull is not defined - THIS IS A TEMPORAL DEAD ZONE
+  const headskull = '💀';
+</script>
+</body>
+</html>

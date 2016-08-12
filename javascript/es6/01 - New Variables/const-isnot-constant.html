@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>let and const</title>
+</head>
+<body>
+<script>
+  /*
+  ES6 const is not about immutability
+  const creates an immutable binding
+  ES6 const does not indicate that a value is ‘constant’ or immutable. A const value can definitely change.
+  */
+
+  // The following is perfectly valid ES6 code that does not throw an exception:
+  const foo = {};
+  foo.bar = 42;
+  console.log(foo.bar);   // → 42
+
+  // The only thing that’s immutable here is the binding. const assigns a value ({}) to a variable name (foo), and guarantees that no rebinding will happen. Using an assignment operator or a unary or postfix -- or ++ operator on a const variable throws a TypeError exception
+  const foo = 27;
+  // Any of the following uncommented lines throws an exception.
+  // Assignment operators:
+  foo = 42;
+  foo *= 42;
+  foo /= 42;
+  foo %= 42;
+  foo += 42;
+  foo -= 42;
+  foo <<= 0b101010;
+  foo >>= 0b101010;
+  foo >>>= 0b101010;
+  foo &= 0b101010;
+  foo ^= 0b101010;
+  foo |= 0b101010;
+  // Unary `--` and `++`:
+  --foo;
+  ++foo;
+  // Postfix `--` and `++`:
+  foo--;
+  foo++;
+
+</script>
+</body>
+</html>

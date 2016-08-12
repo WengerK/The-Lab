@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>let and const</title>
+</head>
+<body>
+<script>
+  const key = 'abc123';
+  let points = 50;
+  let winner = false;
+  {
+    console.log(winner); // → undefined; this WINNER, with the same name, IT's NOT THE SAME WINNER because block scope !!!
+
+    let winner = true;
+    console.log(winner); // → true;
+  }
+  console.log(winner); // → false; this WINNER, with the same name, IT's NOT THE SAME WINNER  because block scope !!!
+
+
+
+  // Let's make a const of object
+  const person = {
+    name: 'Kevin',
+    age: 24
+  }
+  // So now you CAN'T reassign person
+  // person = {age: 28}
+  // But you CAN change propertis of Object
+  person.age = 25;
+
+  // If you wan't to FREEZE a object use the following
+  const wes = Object.freeze(person);
+</script>
+</body>
+</html>

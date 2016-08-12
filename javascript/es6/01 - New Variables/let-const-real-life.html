@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>let and const real world</title>
+</head>
+<body>
+<script>
+
+  /*
+  This is a block so my const variable is scoped here !! see IIFE for more fun :D
+   */
+  {
+    const name = 'wes';
+    console.log(name);
+  }
+
+  /*
+   * Funny example to show how variables could leak
+   * Year I on each iteration is i but on the console.log (after the timeout) it's 10 because the SAME variable (var) is reassigned each time
+   */
+   for(var i = 0; i < 10; i++) {
+     console.log(i);
+     setTimeout(function() {
+       console.log('The number is ' + i);
+     },1000);
+   }
+
+   /*
+   The same code here don't make any issue becasue LET make the variable UNIQUE by SCOPE !!!!!
+    */
+  for(let i = 0; i < 10; i++) {
+    console.log(i);
+    setTimeout(function() {
+      console.log('The number is ' + i);
+    },1000);
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>let and const</title>
+</head>
+<body>
+<script>
+  /*
+   * Var is function scoped so width will be available only on setWidth() function
+   */
+  function setWidth() {
+    var width = 100;
+    console.log(width); // → 100;
+  }
+  setWidth();
+
+  /*
+   * This time, we arn't in a function so age will be available every where 😱
+   */
+  var age = 100;
+  if(age > 12) {
+    // The const can't be rewritten, it's not a constante (Yeah it's creepy) - check this blog post https://mathiasbynens.be/notes/es6-const
+    const dogYears = age * 7;
+    console.log(`You are ${dogYears} dog years old!`);
+  }
+
+  /*
+   * Let & Const a block scoped see let-const.html & const-isnot-constant.html for more examples
+   */
+  let height = 200;
+  const key = 'abc123';
+  // Reassign a const variable cause an erro
+  // const key = 'asdfs';
+</script>
+</body>
+</html>
