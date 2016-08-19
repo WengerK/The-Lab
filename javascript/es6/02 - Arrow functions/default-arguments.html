@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+
+  // Let's try a common function
+  function calculateBill(total, tax, tip) {
+    return total + (total * tax) + (total * tip);
+  }
+  // If I don't pass all the parameters, it works fine but the ungiven value are "undefined"
+  const totalBill = calculateBill(100,);
+  console.log(totalBill); // → NaN because we do math on "undefined" value(s)
+
+
+  // The old way to define default arguments
+  function calculateBill2(total, tax, tip) {
+    if (tip === undefined) {
+      tip = 0.15;
+    }
+    // It's a lot of code, the short way is beauty
+    // tip = tip || 0.15;
+    return total + (total * tax) + (total * tip);
+  }
+  const totalBill2 = calculateBill2(100, 0.13);
+  console.log(totalBill); // → 128 bucks
+
+
+  // Now you can define default values ! 😋
+  function calculateBill3(total, tax = 0.13, tip = 0.15) {
+    return total + (total * tax) + (total * tip);
+  }
+  const totalBill3 = calculateBill3(100); // → 128 bucks
+
+  // You can also skip some parameters to use them default value with undefined keyword
+  const totalBill4 = calculateBill3(100, undefined, 0.25); // → 138 bucks
+
+
+</script>
+</body>
+</html>
