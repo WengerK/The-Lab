@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tagged Templates</title>
+  <style>
+    abbr {
+      border-bottom:1px dotted grey;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bio">
+
+  </div>
+
+<script>
+  const dict = {
+    HTML: 'Hyper Text Markup Language',
+    CSS: 'Cascading Style Sheets',
+    JS: 'JavaScript',
+    PHP: 'PHP'
+  };
+
+  function renderAbbreviations(strings, ...keys) {
+    const abbr = keys.map(key => {
+      // Generate markup for abbr
+      if (dict[key]) {
+        return `<abbr title="${dict[key]}">${key}</abbr>`;
+      }
+      // Don't forget to return other values :D
+      return key;
+    });
+
+    // Recreate the final sentence
+    return strings.reduce((sentence, string, i) => {
+      return `${sentence}${string}${abbr[i] || ''}`;
+    }, ''); // Starte reduce with '' to avoid bug sentence null
+    return abbr;
+  }
+
+  const first = 'Kevin';
+  const last = 'Wenger';
+
+  const sentence = renderAbbreviations`Hello my name is ${first} ${last} and I love to code ${'HTML'}, ${'CSS'}, ${'JS'} & ${'PHP'}`;
+  console.log(sentence);
+
+  // append it on the page
+  const bio = document.querySelector('.bio');
+  const p = document.createElement('p');
+  p.innerHTML = sentence;
+  bio.appendChild(p);
+
+</script>
+</body>
+</html>
