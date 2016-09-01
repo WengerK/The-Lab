@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The ...Spread Operator</title>
+</head>
+<body>
+<script>
+
+  const featured = ['Deep Dish', 'Pepperoni', 'Hawaiian'];
+  const specialty = ['Meatzza', 'Spicy Mama', 'Margherita'];
+
+  // Yes you can merge array using the spread operator
+  const pizzas = [...featured, 'veg', ...specialty];
+
+  // Duplicate array
+  const fridayPizzas = pizzas // This don't copy it's a reference to pizzas !!
+  // This is a real way to copy an array
+  const fridayPizzas = [...pizzas];
+
+  const deepDish = {
+    pizzaName: 'Deep Dish',
+    size: 'Medium',
+    ingredients: ['Marinara', 'Italian Sausage', 'Dough', 'Cheese']
+  };
+
+</script>
+</body>
+</html>
