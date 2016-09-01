@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tagged Templates</title>
+  <style>
+    .hl {
+      background: #ffc600;
+    }
+  </style>
+</head>
+<body>
+<script>
+  function myfunction(strings, ..) {
+    // This is stope the execution of my code and show all variables
+    debugger;
+  }
+
+  // Tagging template is a way to change the render of a template string
+  // You have to create a function and use the function before the template string
+
+  /**
+   * [highlight description]
+   * @method highlight
+   *
+   * @param  Array    strings     Will contain a array of string by decouping the orignial string before each variables given. On thing again, the String Array is always bigger by one than the Values Array !!
+   *
+   * @param  Array    values      Somtimes you don't know how many args you can use the 'rest's operator (...)
+   *
+   * @return String          [description]
+   */
+  function highlight(strings, ...values) {
+    let str = '';
+    strings.forEach((string, i) => {
+      str += `${string} <span contenteditable class="hl">${values[i] || ''}</span>`;
+    });
+    return str;
+  }
+
+  const name = 'Snickers';
+  const age = 100;
+
+  // Use of our tagged template
+  const sentence = highlight`My dog's name is ${name} and he is ${age} years old`;
+  document.body.innerHTML = sentence;
+  console.log(sentence);
+
+</script>
+</body>
+</html>
