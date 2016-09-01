@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Destructuring!</title>
+</head>
+<body>
+<script>
+  // Destructuring allow you to extract data from Array, Map, Object, ...
+
+  const person = {
+    first: 'Kevin',
+    last: 'Wenger',
+    country: 'Swisstzerland',
+    city: 'Vevex',
+    twitter: '@wengerk'
+  };
+
+  // The old way
+  // const first = person.first;
+  // const last = person.last;
+  // const twitter = person.twitter;
+
+  // Use Destructiring syntax using bracket !!! { }
+  const { first, last, twitter } = person; // That will create top level variable using name of properties
+
+  const wes = {
+    first: 'Kevin',
+    last: 'Wenger',
+    links: {
+      social: {
+        twitter: 'https://twitter.com/wengerk',
+        facebook: 'https://facebook.com/kevin-wenger',
+      },
+      web: {
+        blog: 'https://kevin-wenger.ch'
+      }
+    }
+  };
+
+  // Sometimes you want to renamed the detructured top level variable
+  const { twitter: tweet, facebook: fb } = wes.links.social;
+
+
+  const settings = { width: 300, color: 'black' }  // We don't mention height, fontSize
+  // Destructiring allow default values !!!
+  const { width = 100, height = 100, color = 'blue', fontSize = 25 } = settings;
+
+</script>
+</body>
+</html>
