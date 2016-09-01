@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Destructuring in Action!</title>
+</head>
+<body>
+<script>
+  let inRing = 'Hulk Hogan';
+  let onSide = 'The Rock';
+
+  console.log(inRing, onSide); // → Hulk Hogan  The Rock
+  // Let's use destructuring to switch 2 variables !
+  [inRing, onSide] = [onSide, inRing];
+  console.log(inRing, onSide); // → The Rock  Hulk Hogan
+
+</script>
+</body>
+</html>
