@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Template Strings!</title>
+</head>
+<body>
+<script>
+  // sometimes you need to nest a lot of template string and it became complicate to read it
+  // use a render function to make you code redable
+  const beer = {
+    name: 'Belgian Wit',
+    brewery: 'Steam Whistle Brewery',
+    keywords: ['pale', 'cloudy', 'spiced', 'crisp']
+  };
+
+  /**
+   * Render keyword as list tag
+   * @method renderKeywords
+   * @param  Array       keywords
+   * @return String      Markup list
+   */
+  function renderKeywords(keywords) {
+    // don't forget the join at the end to remove the comma (,)
+    return `
+      <ul>
+        ${keywords.map(keyword => `<li>${keyword}</li>`).join('')}
+      </ul>
+    `;
+  }
+
+  const markup = `
+    <div class="beer">
+      <h2>${beer.name}</h2>
+      <p class="brewery">${beer.brewery}</p>
+      ${renderKeywords(beer.keywords)}
+    </div>
+  `;
+
+  document.body.innerHTML = markup;
+
+</script>
+</body>
+</html>

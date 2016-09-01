@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Template Strings!</title>
+</head>
+<body>
+<script>
+  const dogs = [
+    { name: 'Snickers', age: 2 },
+    { name: 'Hugo', age: 8 },
+    { name: 'Sunny', age: 1 }
+  ];
+
+  // Template strings are nestable !! Yeah !!
+
+  // We use a nesting into the map function
+  // The final join is just here to remove the comma (,) at end of <li>
+  const markup = `
+    <ul class="dogs">
+      ${dogs.map(dog => `
+        <li>
+          ${dog.name}
+          is
+          ${dog.age * 7}
+        </li>`).join('')}
+    </ul>
+  `;
+  document.body.innerHTML = markup;
+
+</script>
+</body>
+</html>

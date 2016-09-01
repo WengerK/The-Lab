@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Template Strings!</title>
+</head>
+<body>
+<script>
+  const person = {
+    name: 'Kevin',
+    job: 'FullStack Web Developer',
+    city: 'Vevey',
+    bio: 'Kevin is a really cool guy that loves web development!',
+  };
+
+  // Create multiline string is possible using the baskslash
+  let conversation = " \
+  - Hello there, \
+  > How are you ? \
+  - Fine and you ? \
+  ";
+  console.log(conversation);
+
+  // Instead, use the template string !
+  const markup = `
+    <div class="person">
+      <h2>
+        ${person.name}
+        <span class="job">${person.job}</span>
+      </h2>
+      <p class="location">${person.city}</p>
+      <p class="bio">${person.bio}</p>
+    </div>
+  `;
+
+  console.log(markup);
+  document.body.innerHTML = markup;
+
+</script>
+</body>
+</html>
