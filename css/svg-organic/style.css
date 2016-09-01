@@ -1,0 +1,12 @@
+.organicjs-container {
+  position: relative;
+}
+
+.organicjs-container .path-small,
+.organicjs-container .path-big{
+  position: absolute;
+}
+
+.organicjs-container .path-small{
+  top: 20px;
+}
