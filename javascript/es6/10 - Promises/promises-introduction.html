@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Promises!</title>
+</head>
+<body>
+<script>
+// Retrieve data from endpoint - same as $.getJson or $.ajax but built-in browser - fetch is coooool
+// Fetch is Async !! like all endpoint call :D
+const postsPromise = fetch('http://wesbos.com/wp-json/wp/v2/posts');
+
+postsPromise
+  // .then only run once data come back from endpoint !
+  .then(data => data.json()) // Inform fetch we get json - to make them readable in our code
+  .then(data => { console.log(data) })
+  .catch((err) => {
+    console.error(err);
+  })
+
+</script>
+</body>
+</html>
