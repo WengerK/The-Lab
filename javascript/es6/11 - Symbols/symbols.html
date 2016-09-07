@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Symbols</title>
+</head>
+<body>
+<script>
+  // Symbol is a uniq identifier
+  const wes = Symbol('Wes');
+  const person = Symbol('Wes');
+  // Symbol a completely unique wes !== person
+
+  // It's used to avoid naming collision, for example when listing same user name, using Symbol you don't have any issue
+  const classRoom = {
+    [Symbol('Mark')] : { grade: 50, gender: 'male' },
+    [Symbol('olivia')]: { grade: 80, gender: 'female' },
+    [Symbol('olivia')]: { grade: 80, gender: 'female' },
+  };
+
+  // Remeember, for of not working in Object
+  for (const person in classRoom) {
+    console.log(person);   // The symbol arn't itterable so nothing happend ere
+  }
+
+  // Possible to retrieve all symbols propertiy as key of array !!! so nice
+  const syms = Object.getOwnPropertySymbols(classRoom);
+  const data = syms.map(sym => classRoom[sym]);
+  console.log(data);
+
+</script>
+</body>
+</html>
