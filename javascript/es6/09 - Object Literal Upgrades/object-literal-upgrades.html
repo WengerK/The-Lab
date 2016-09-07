@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Object Literal Upgrades</title>
+</head>
+<body>
+<script>
+  const first = 'snickers';
+  const last = 'bos';
+  const age = 2;
+  const breed = 'King Charles Cav';
+  const dog = {
+    firstName: first,
+    // When the property has the same name as the variable, don't need to do last: last :p
+    last,
+    age,
+    breed,
+    pals: ['Hugo', 'Sunny']
+  };
+  console.log(dog);
+
+  const modal = {
+    create: function(){
+
+    },
+
+    // Shorthand, don't need any function keyword
+    open(content) {
+
+    },
+    close(goodbye) {
+
+    }
+  }
+
+  /**
+   * Given function to inverte a hex color
+   * @method invertColor
+   * @param  string    color [description]
+   * @return string          [description]
+   */
+  function invertColor(color) {
+      return '#' + ("000000" + (0xFFFFFF ^ parseInt(color.substring(1),16)).toString(16)).slice(-6);
+  }
+
+  const key = 'pocketColor';
+  const value = '#ffc600';
+
+  const tShirt = {
+    // Create a property using string var
+    [key]: value,
+    // Create new property using old one with back tick !!
+    [`${key}Opposite`]: invertColor(value)
+  };
+
+
+  // Generate property using variable and shift value every time :D funny trick
+  const keys = ['size', 'color', 'weight'];
+  const values = ['medium', 'red', 100];
+  const shirt = {
+    [keys.shift()]: values.shift(),
+    [keys.shift()]: values.shift(),
+    [keys.shift()]: values.shift(),
+  }
+  console.log(shirt);
+
+</script>
+</body>
+</html>
