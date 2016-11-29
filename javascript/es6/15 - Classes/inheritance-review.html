@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Inheritance Review</title>
+</head>
+<body>
+<script>
+  // Constructor, begin with a capital
+  function Dog(name, breed) {
+    this.name = name;
+    this.breed = breed;
+  }
+
+  // The method bark will be herited on every instances of Dog
+  Dog.prototype.bark = function() {
+    console.log(`Bark Bark! My name is ${this.name}`);
+  }
+
+  const snickers = new Dog('Snickers', 'King Charles');
+  const sunny = new Dog('Sunny', 'Golden Doodle');
+
+  snickers.bark(); // → Bark Bark! My name is Snickers
+  sunny.bark(); // → Bark Bark! My name is Sunny
+
+  // Override the previous prototype function bark
+  Dog.prototype.bark = function() {
+    console.log(`Bark Bark🇨🇦🇨🇦🇨🇦! My name is ${this.name} and I'm a ${this.breed}`);
+  }
+
+  snickers.bark(); // → Bark Bark🇨🇦🇨🇦🇨🇦! My name is Snickers and I'm a King Charles
+  sunny.bark(); // → Bark Bark🇨🇦🇨🇦🇨🇦! My name is Sunny and I'm a Golden Doodle
+
+  // Even if the prototype is modified AFTER the initialization, the methode will be reachable because it belongts to Dog prototype and not the instance.
+  Dog.prototype.cuddle = function() {
+    console.log(`I love you owner!`);
+  }
+
+  snickers.cuddle(); // → I love you owner!
+  sunny.cuddle(); // → I love you owner!
+
+</script>
+</body>
+</html>
