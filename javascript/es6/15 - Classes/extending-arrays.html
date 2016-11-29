@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Extending</title>
+</head>
+<body>
+<script>
+  class MovieCollection extends Array {
+    // Capture with the rest operator
+    constructor(name, ...items) {
+      // Send items with the spread operator
+      super(...items);
+      this.name = name;
+    }
+    add(movie) {
+      this.push(movie);
+    }
+    topRated(limit = 10) {
+      return this.sort((a, b) => (a.stars > b.stars ? -1 : 1)).slice(0, limit);
+    }
+  }
+
+  const movies = new MovieCollection('Wengerk\'s Fav Movies',
+    { name: 'Bee Movie', stars: 10 },
+    { name: 'Star Wars Trek', stars: 1 },
+    { name: 'Virgin Suicides', stars: 7 },
+    { name: 'King of the Road', stars: 8 }
+  );
+
+  movies.add({ name: 'Titanic', stars: 5 });
+
+  console.table(movies.topRated(2)); // → ["Bee Movie", "King of the Road"]
+
+</script>
+</body>
+</html>
