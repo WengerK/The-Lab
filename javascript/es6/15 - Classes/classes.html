@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Inheritance Review</title>
+</head>
+<body>
+<script>
+  // Prototype before ES6 Class
+  function Dog(name, breed) {
+    this.name = name;
+    this.breed = breed;
+  }
+
+  Dog.prototype.bark = function() {
+    console.log(`Bark Bark! My name is ${this.name}`);
+  };
+
+  Dog.prototype.cuddle = function() {
+    console.log(`I love you owner!`);
+  };
+
+  const snickers = new Dog('Snickers', 'King Charles');
+  const sunny = new Dog('Sunny', 'Golden Doodle');
+
+
+  // Two way to create classes - Declaration & Expression
+  // Class Declaration
+  class Cat {};
+
+  // Class Expression
+  const Kitten = class {};
+
+
+  // Prototype with ES6 Class, this is still PROTOTYPE (Don't be confuse with Class in PHP or Java, C++ it's not the same)
+
+  class Turtle {
+    constructor(name, breed) {
+      this.name = name;
+      this.breed = breed;
+    }
+    bark(){
+      console.log(`Bark Bark! My name is ${this.name}`);
+    }
+    cuddle(){
+      console.log(`I love you owner!`);
+    }
+    static info() {
+      console.log('A turtle is better than a dog by 10 times.')
+    }
+    get description() {
+      return `${this.name} is a ${this.breed} type of turtle`;
+    }
+    // Carefull, setter name can't be same name as variable that it will set !
+    set nickname(value) {
+      this.name = value.trim();
+    }
+    get nickname( ){
+      return this.name.toUpperCase();
+    }
+  }
+
+  const marcel = new Turtle('Marcel', 'King Charles');
+  const paul = new Turtle('Paul', 'Golden Doodle');
+
+
+  // The static methodes
+  // They belong to the Prototype only and not to isntance of him
+  console.log(marcel.info()) // → undefined
+  console.log(Turtle.info()) // → A turtle is better than a dog by 10 times.
+
+
+  // Getter & Setter
+  console.log(marcel.description()) // → Marcel is a Kinng charles type of turtle
+  marcel.nichname('Marcelle');
+  console.log(marcel.nickname()) // → Marcelle
+
+</script>
+</body>
+</html>
