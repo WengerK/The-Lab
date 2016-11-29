@@ -1,5 +1,5 @@
 {
-  "name": "12-javascript-modules-and-using-npm",
+  "name": "13-javascript-modules-and-using-npm",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -19,7 +19,7 @@
     "webpack": "^2.1.0-beta.22"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --progress --watch"
   },
   "author": "Kevin Wenger",
   "license": "ISC"
