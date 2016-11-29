@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Looping Generators</title>
+</head>
+<body>
+<script>
+  // Generator are loopable !!!!
+
+  function* lyrics() {
+    yield `But don't tell my heart`;
+    yield `My achy breaky heart`;
+    yield `I just don't think he'd understand`;
+    yield `And if you tell my heart`;
+    yield `My achy breaky heart`;
+    yield `He might blow up and kill this man`;
+  }
+
+  const achy = lyrics();
+
+  for (const line of achy) {
+    // Don't need to call the .next(), it's made automaticaly because for know it must call next on each loop
+    console.log(line);
+  }
+</script>
+</body>
+</html>
