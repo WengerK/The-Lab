@@ -1,2 +1,4 @@
 node_modules/
 _build/
+
+npm-debug.log
