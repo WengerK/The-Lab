@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Generators</title>
+</head>
+<body>
+<script>
+  // Generator function are followed by * after the keyword "function"
+  function* listPeople() {
+    let i = 0;
+    yield i;
+    i++;
+    yield i;
+    i++;
+    yield i;
+  }
+
+  const people = listPeople();
+
+  people.next(); // → 0
+  people.next(); // → 1
+  people.next(); // → 2
+
+  const inventors = [
+    { first: 'Albert', last: 'Einstein', year: 1879 },
+    { first: 'Isaac', last: 'Newton', year: 1643 },
+    { first: 'Galileo', last: 'Galilei', year: 1564 },
+    { first: 'Marie', last: 'Curie', year: 1867 },
+    { first: 'Johannes', last: 'Kepler', year: 1571 },
+    { first: 'Nicolaus', last: 'Copernicus', year: 1473 },
+    { first: 'Max', last: 'Planck', year: 1858 },
+  ];
+
+  function* loop(arr) {
+    console.table(inventors);
+    for (const item of arr) {
+      yield item;
+    }
+  }
+
+  // The generator will not be executed before the first next, so our console.table will show on the first next
+  const inventorGen = loop(inventors);
+
+  inventorGen.next().value; // → Show inventors and yeld first item - Alert Enstein
+  inventorGen.next().value; // → Isaac Newton
+
+</script>
+</body>
+</html>
