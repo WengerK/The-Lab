@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Frosers & Brosers</title>
+        <link href='//fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+        <!-- Bootstrap 4 -->
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    </head>
+    <body>
+        <!-- Image and text -->
+        <nav class="navbar navbar-light bg-faded">
+            <a class="navbar-brand my-2" href="#">
+                <img src="https://v4-alpha.getbootstrap.com/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+                Frosers & Brosers
+            </a>
+
+            <form class="form-inline my-2 navbar-toggler-right">
+            <?php if(isset($login)): ?>
+                <a href="<?= $login ?>" class="btn btn-outline-success">Login with Instragram</a>
+            <?php else: ?>
+                <a href="//instagram.com" target="_blank" class="btn btn-outline-info">@<?= $user->username; ?></a>
+            <?php endif; ?>
+            </form>
+        </nav>
+        <div class="container">
+            <?php if(isset($follow_list)): ?>
+            <div class="row mt-5">
+                <?php foreach ($follow_list as $follow): ?>
+                <div class="col-sm-3">
+                    <div class="card text-center">
+                        <a href="https://www.instagram.com/<?= $follow->username ?>/" target="_blank">
+                            <img class="card-img-top rounded-circle mx-auto d-block mt-3" src="<?= $follow->profile_picture ?>" alt="Card image cap" style="width: 120px;">
+                        </a>
+                        <div class="card-block">
+                            <h3 class="card-title"><a href="https://www.instagram.com/<?= $follow->username ?>/" target="_blank">@<?= $follow->username ?></a></h3>
+                            <p><?= $follow->full_name ?></p>
+                            <div class="btn btn-<?= $follow->status == 'follow' ? 'success' : 'danger'  ?>"><?= $follow->status == 'follow' ? 'Follow' : 'Not Follow' ?></div>
+                        </div>
+                    </div>
+                </div>
+                <?php endforeach; ?>
+            </div>
+            <?php endif; ?>
+        </div>
+
+        <!-- Bootstrap 4 -->
+        <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    </body>
+</html>
+
